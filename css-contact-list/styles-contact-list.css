@@ -1,0 +1,170 @@
+@font-face {
+  font-family: 'ubuntulight';
+  src: url('../../fonts/ubuntu-l-webfont.woff2') format('woff2'),
+       url('../../fonts/ubuntu-l-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* ---------- GENERAL STYLES ---------- */
+
+.class-body {background: #fafafa;}
+.container-index {height: 100vh; font-family: 'ubuntulight';}
+a {text-decoration: none; color: #404040;}
+a:hover {color: #449BA7;}
+.tr-table:nth-child(odd){background-color: #edf8f8;}
+.grey-color {color: #404040;}
+.green-color {color: #92cbd3}
+.bg-yellow-color {background: #eec974;}
+.bg-grey-color {background: #404040;}
+.bg-green-color {background: #92cbd3}
+.bg-red-color {background: #F04444;}
+#x-alert {padding: 0.7rem 0.7rem;}
+
+.container-table {
+   box-shadow: 10px 10px 10px #909090;
+   padding: 20px;
+   background: #f7f7f7;
+   font-family: 'ubuntulight';
+   margin-top: 80px;
+   border: 1px solid lightgray;
+}
+
+/* ----------- NAV BAR ---------- */
+
+.overlay {
+   height: 100%;
+   width: 0;
+   position: fixed;
+   z-index: 3;
+   left: 0;
+   top: 0;
+   background: rgba(24, 27, 27, 0.95); 
+   overflow-x: hidden; 
+   -webkit-transition: 0.5s; 
+   transition: 0.5s;
+}
+.overlay-content {
+   position: relative;
+   width: 100%;
+}
+.overlay a {
+   padding: 8px;
+   text-decoration: none;
+   font-size: 2.2rem;
+   color: #fafafa;
+   display: block; 
+   -webkit-transition: 0.3s; 
+   transition: 0.3s;
+}
+.overlay a:hover, .overlay a:focus {
+   color: #a0abab;
+}
+.overlay .closebtn {
+   font-size: 3.7rem;
+}
+.container-burguer {
+   width: 100%;
+   height: 42px;
+   background: transparent;
+   z-index: 1;
+}
+.icon-burguer {
+   width: 32px;
+   position: fixed;
+   top: 10px;
+   right: 10px;
+   z-index: 2;
+   cursor: pointer;
+}
+
+/* ---------- FORM STYLES ---------- */
+
+.form-control {
+   border: 0px;
+   border-bottom: 1px solid #909090;
+}
+.form-label {
+   font-weight: bold;
+}
+.input-search {
+   width: 100%;
+}
+.button-search {
+   background: #f7f7f7;
+   border: 0px;
+   float: right;
+   padding: 0px;
+}
+
+/* ------------------ ICONS STYLES -------------------- */
+
+.col-icons-index {height: 100vh;}
+.icon-find {width: 175px;}
+.icon-search {width: 35px;}
+.icon-form, .icon-mail {width: 30px; padding-right: 3px;}
+.icon-mail {margin-right: 5px;}
+
+/* ---------- BIG SCREEN ---------- */
+
+@media screen and (min-width: 1200px) {
+   .container-table {padding: 20px; width: 60%;}
+   .only-mobile {display: none;}
+   .icon-list {height: 225px; margin-right: 50px;}
+   .icon-new-contact {height: 225px; margin-left: 50px;}
+}
+
+/* ---------- PC STYLE ---------- */
+
+@media screen and (min-width: 992px) and (max-width: 1200px){
+   .container-table {padding: 20px; width: 80%;}
+   .only-mobile {display: none;}
+   .icon-list {height: 225px; margin-right: 50px;}
+   .icon-new-contact {height: 225px; margin-left: 50px;}
+}
+
+/* ---------- TABLET LANDSCAPE STYLE ---------- */
+
+@media all and (min-width: 768px) and (max-width: 992px) {
+   .pc-table-title, .pc-table, .no-mobile {display: none;}
+   .container-table {
+      font-size: 1rem;
+      width: 80%;
+      margin-top: 100px; 
+   }
+   .icon-back {width: 50px;}
+   .icon-list {height: 200px; margin-right: 50px;}
+   .icon-new-contact {height: 200px; margin-left: 50px;}
+}
+
+/* ---------- TABLET STYLE ---------- */
+
+@media all and (min-width: 575px) and (max-width: 768px) {
+   .pc-table-title, .pc-table, .no-mobile {display: none;}
+   .container-table {
+      font-size: 1rem;
+      width: 85%;
+      margin-top: 100px; 
+   }
+   .icon-back {width: 50px;}
+   .icon-search {display: none;}
+   .icon-list {height: 200px; margin-right: 50px;}
+   .icon-new-contact {height: 200px; margin-left: 50px;}
+}
+
+/* ---------- MOBILE STYLE ---------- */
+
+@media all and (max-width: 575px) {
+   .icon-search {display: none;}
+   .pc-table-title, .pc-table, .no-mobile {display: none;}
+   .container-table {
+      font-size: 1rem;
+      margin-top: 100px;
+      width: 100%;
+      box-shadow: none;
+      border: none;
+   }
+   .icon-back {width: 50px;}
+   .icon-list {height: 200px; margin-bottom: 30px;}
+   .icon-new-contact {height: 200px; margin-top: 30px;}
+}
