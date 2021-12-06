@@ -99,8 +99,6 @@ a:hover {color: #449BA7;}
 
 /* ------------------ ICONS STYLES -------------------- */
 
-.col-icons-index {height: 100vh;}
-.icon-find {width: 175px;}
 .icon-search {width: 35px;}
 .icon-form, .icon-mail {width: 30px; padding-right: 3px;}
 .icon-mail {margin-right: 5px;}
@@ -110,8 +108,6 @@ a:hover {color: #449BA7;}
 @media screen and (min-width: 1200px) {
    .container-table {padding: 20px; width: 60%;}
    .only-mobile {display: none;}
-   .icon-list {height: 225px; margin-right: 50px;}
-   .icon-new-contact {height: 225px; margin-left: 50px;}
 }
 
 /* ---------- PC STYLE ---------- */
@@ -119,37 +115,21 @@ a:hover {color: #449BA7;}
 @media screen and (min-width: 992px) and (max-width: 1200px){
    .container-table {padding: 20px; width: 80%;}
    .only-mobile {display: none;}
-   .icon-list {height: 225px; margin-right: 50px;}
-   .icon-new-contact {height: 225px; margin-left: 50px;}
 }
 
 /* ---------- TABLET LANDSCAPE STYLE ---------- */
 
 @media all and (min-width: 768px) and (max-width: 992px) {
    .pc-table-title, .pc-table, .no-mobile {display: none;}
-   .container-table {
-      font-size: 1rem;
-      width: 80%;
-      margin-top: 100px; 
-   }
-   .icon-back {width: 50px;}
-   .icon-list {height: 200px; margin-right: 50px;}
-   .icon-new-contact {height: 200px; margin-left: 50px;}
+   .container-table {font-size: 1rem; width: 80%; margin-top: 100px;}
 }
 
 /* ---------- TABLET STYLE ---------- */
 
 @media all and (min-width: 575px) and (max-width: 768px) {
    .pc-table-title, .pc-table, .no-mobile {display: none;}
-   .container-table {
-      font-size: 1rem;
-      width: 85%;
-      margin-top: 100px; 
-   }
-   .icon-back {width: 50px;}
+   .container-table {font-size: 1rem; width: 85%; margin-top: 100px;}
    .icon-search {display: none;}
-   .icon-list {height: 200px; margin-right: 50px;}
-   .icon-new-contact {height: 200px; margin-left: 50px;}
 }
 
 /* ---------- MOBILE STYLE ---------- */
@@ -164,7 +144,4 @@ a:hover {color: #449BA7;}
       box-shadow: none;
       border: none;
    }
-   .icon-back {width: 50px;}
-   .icon-list {height: 200px; margin-bottom: 30px;}
-   .icon-new-contact {height: 200px; margin-top: 30px;}
 }
