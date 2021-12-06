@@ -7,7 +7,7 @@ require_once("includes/header.php");
       $idContact = $_GET['id'];
       }
 
-      $query = "SELECT * FROM contactes WHERE id = :id";
+      $query = "SELECT * FROM contacts WHERE id = :id";
       $stmt = $conn->prepare($query);
       $stmt->bindParam(":id", $idContact, PDO::PARAM_INT);
       $stmt->execute();
