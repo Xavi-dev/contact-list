@@ -3,9 +3,9 @@
 $title = "Contacts";
 require_once("includes/header.php");
 
-   $query = "SELECT * FROM contactes LIMIT 10";
+   $query = "SELECT * FROM contacts";
    $stmt = $conn->query($query);
-   $contactes = $stmt->fetchAll(PDO::FETCH_OBJ);
+   $contacts = $stmt->fetchAll(PDO::FETCH_OBJ);
 
 ?>
 
@@ -19,7 +19,7 @@ require_once("includes/header.php");
 
       <div class="row">
          <div class="col-md-7 col-sm-12">
-               <h2><a href="crear_contacte.php"><img src="img/new-contact.svg" class="me-1 pb-1" alt="">Create new
+               <h2><a href="create_contact.php"><img src="img/new-contact.svg" class="me-1 pb-1" alt="">Create new
                      contact</a></h2>
          </div>
 
@@ -30,7 +30,7 @@ require_once("includes/header.php");
                            alt=""></button>
          </div>
          <div class="col-md-4 col-sm-12 col-search mt-2">
-               <input type="text" class="input-search form-control" id="myInput" placeholder="Buscar contacte...">
+               <input type="text" class="input-search form-control" id="myInput" placeholder="Search contact...">
          </div>
          </form>
       </div>
@@ -50,7 +50,7 @@ require_once("includes/header.php");
 
                   <tbody id="myTable">
 
-                     <?php foreach($contactes as $i) : ?>
+                     <?php foreach($contacts as $i) : ?>
 
                      <tr class="tr-table">
                            <td>
@@ -61,12 +61,12 @@ require_once("includes/header.php");
                               <a href="delete_contact.php?id=<?php echo $i->id; ?>"><img src="img/erase-red.svg"
                                        alt="" class="icon-form no-mobile"></a>
                            </td>
-                           <td><?php echo $i->nom; ?></td>
-                           <td><?php echo $i->cognoms; ?></td>
+                           <td><?php echo $i->name; ?></td>
+                           <td><?php echo $i->lastname; ?></td>
                            <td class="pc-table">
                               <a href="tel:+<?php echo "+" . $i->prefix; ?>
-                  <?php echo $i->telefon; ?>"><img src="img/icon-watsap.svg" alt=""
-                                       class="icon-form"><?php echo "+" . $i->prefix. " " . $i->telefon; ?></a>
+                  <?php echo $i->mobile; ?>"><img src="img/icon-watsap.svg" alt=""
+                                       class="icon-form"><?php echo "+" . $i->prefix. " " . $i->mobile; ?></a>
                            </td>
                            <td class="pc-table">
                               <a href="mailto:<?php echo $i->email; ?>"><img src="img/ICON_Contact-agenda.svg" alt=""
@@ -83,6 +83,7 @@ require_once("includes/header.php");
 
       <?php require_once("includes/footer.php") ?>
 
+      <!-- Jquery search contacts -->
 
       <script>
       $(document).ready(function() {
