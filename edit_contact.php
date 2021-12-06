@@ -4,44 +4,44 @@ $title = "Edit contact";
 require_once("includes/header.php"); 
 
    if (isset($_GET['id'])) {
-      $idContacte = $_GET['id'];
+      $idContact = $_GET['id'];
    }
 
-      $query = "SELECT * FROM contactes WHERE id = :id";
+      $query = "SELECT * FROM contacts WHERE id = :id";
       $stmt = $conn->prepare($query);
-      $stmt->bindParam(":id", $idContacte, PDO::PARAM_INT);
+      $stmt->bindParam(":id", $idContact, PDO::PARAM_INT);
       $stmt->execute();
 
-      $contacte = $stmt->fetch(PDO::FETCH_OBJ);
+      $contact = $stmt->fetch(PDO::FETCH_OBJ);
 
-   if (isset($_POST["editarContacte"])) {
+   if (isset($_POST["editContact"])) {
         
-      $nom = $_POST["nom"];
-      $cognoms = $_POST["cognoms"];
+      $name = $_POST["name"];
+      $lastName = $_POST["lastname"];
       $prefix = $_POST["prefix"];
-      $telefon = $_POST["telefon"];
+      $mobile = $_POST["mobile"];
       $email = $_POST["email"];
 
-   if (empty($nom) || empty($cognoms) || empty($prefix) || empty($telefon) || empty($email)) {
+   if (empty($name) || empty($lastName) || empty($prefix) || empty($mobile) || empty($email)) {
       $error = "Error. There are empty fields.";
       header('Location: edit_contact.php?error=' . $error);
    }else{           
-      $query = "UPDATE contactes set nom = :nom, cognoms = :cognoms, prefix = :prefix, telefon = :telefon, email = :email  WHERE id = :id";
+      $query = "UPDATE contacts set name = :name, lastname = :lastname, prefix = :prefix, mobile = :mobile, email = :email  WHERE id = :id";
 
       $stmt = $conn->prepare($query);
 
-      $stmt->bindParam(":nom", $nom, PDO::PARAM_STR);
-      $stmt->bindParam(":cognoms", $cognoms, PDO::PARAM_STR);
+      $stmt->bindParam(":name", $name, PDO::PARAM_STR);
+      $stmt->bindParam(":lastname", $lastName, PDO::PARAM_STR);
       $stmt->bindParam(":prefix", $prefix, PDO::PARAM_STR);
-      $stmt->bindParam(":telefon", $telefon, PDO::PARAM_STR);
+      $stmt->bindParam(":mobile", $mobile, PDO::PARAM_STR);
       $stmt->bindParam(":email", $email, PDO::PARAM_STR);
-      $stmt->bindParam(":id", $idContacte, PDO::PARAM_INT);
+      $stmt->bindParam(":id", $idContact, PDO::PARAM_INT);
 
       $resultat = $stmt->execute();
             
       if ($resultat) {
-         $missatge = "Contact edited successfully.";
-         header('Location: contacts.php?missatge=' . $missatge);
+         $message = "Contact edited successfully.";
+         header('Location: contacts.php?missatge=' . $message);
          exit();
       }else{
          $error = "Error when editing the contact. There are empty fields or the email already exists.";
@@ -68,14 +68,14 @@ require_once("includes/header.php");
                 <form method="POST" action="<?php $_SERVER['PHP_SELF']; ?>">
 
                     <div class="mb-3">
-                        <label for="nom" class="form-label">Name:</label>
-                        <input type="text" class="form-control" name="nom"
-                            value="<?php if($contacte) echo $contacte->nom; ?>" required>
+                        <label for="name" class="form-label">Name:</label>
+                        <input type="text" class="form-control" name="name"
+                            value="<?php if($contact) echo $contact->name; ?>" required>
                     </div>
                     <div class="mb-3">
-                        <label for="cognomss" class="form-label">Last name:</label>
-                        <input type="text" class="form-control" name="cognoms"
-                            value="<?php if($contacte) echo $contacte->cognoms; ?>" required>
+                        <label for="lastname" class="form-label">Last name:</label>
+                        <input type="text" class="form-control" name="lastname"
+                            value="<?php if($contact) echo $contact->lastname; ?>" required>
                     </div>
 
                     <div class="row">
@@ -83,12 +83,12 @@ require_once("includes/header.php");
                         <div class="col-3 col-sm-2 mb-3">
                             <label for="prefix" class="form-label">Prefix:</label>
                             <input type="text" class="form-control" name="prefix"
-                                value="<?php if($contacte) echo $contacte->prefix; ?>" required>
+                                value="<?php if($contact) echo $contact->prefix; ?>" required>
                         </div>
                         <div class="col-9 col-sm-10 mb-3">
-                            <label for="telefon" class="form-label">Mobile:</label>
-                            <input type="text" class="form-control" name="telefon"
-                                value="<?php if($contacte) echo $contacte->telefon; ?>" required>
+                            <label for="mobile" class="form-label">Mobile:</label>
+                            <input type="text" class="form-control" name="mobile"
+                                value="<?php if($contact) echo $contact->mobile; ?>" required>
                         </div>
 
                     </div>
@@ -96,17 +96,16 @@ require_once("includes/header.php");
                     <div class="mb-3">
                         <label for="email" class="form-label">Email:</label>
                         <input type="email" class="form-control" name="email"
-                            value="<?php if($contacte) echo $contacte->email; ?>" required>
+                            value="<?php if($contact) echo $contact->email; ?>" required>
                     </div>
 
-                    <button type="submit" name="editarContacte" class="mt-3 btn w-100 bg-yellow-color">Edit
+                    <button type="submit" name="editContact" class="mt-3 btn w-100 bg-yellow-color">Edit
                         contact</button>
 
                 </form>
 
             </div>
         </div>
-
     </div>
 </div>
 
